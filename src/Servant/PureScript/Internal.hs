@@ -107,7 +107,7 @@ defaultSettings = Settings {
         , ImportLine "Data.Maybe" (Set.fromList [ "Maybe(..)"])
         , ImportLine "Data.String" (Set.fromList ["joinWith"])
         , ImportLine "Data.Array" (Set.fromList ["catMaybes", "null"])
-        , ImportLine "Data.Argonaut.Core" (Set.fromList [ "stringify" ])
+        , ImportLine "Global.Unsafe" (Set.fromList [ "unsafeStringify" ])
         ]
   , _generateSubscriberAPI = False
   }
