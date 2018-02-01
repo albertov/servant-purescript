@@ -123,6 +123,7 @@ genFnBody rParams req = "do"
       </> "let affReq =" <+> hang 2 ( "defaultRequest" </>
             "{ method ="  <+> "httpMethod"
         </> ", url ="     <+> "reqUrl"
+        </> ", withCredentials = true"
         </> ", headers =" <+> "defaultRequest.headers <> reqHeaders"
         </> case req ^. reqBody of
               Nothing -> "}"
