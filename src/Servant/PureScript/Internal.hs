@@ -179,9 +179,13 @@ psTypeParameterA = TypeInfo {
 
 -- use servant-foreign's camelCaseL legacy version
 jsCamelCaseL :: Getter FunctionName Text
-jsCamelCaseL = _FunctionName . to (convert . map (T.replace "-" ""))
+jsCamelCaseL = _FunctionName . to (convert . map cleanup )
   where
     convert []     = ""
     convert (p:ps) = mconcat $ p : map capitalize ps
     capitalize ""   = ""
     capitalize name = toUpper (T.head name) `T.cons` T.tail name
+    cleanup = T.replace "-" ""
+            . T.replace "@" ""
+            . T.replace ";" ""
+            . T.replace "." "_"
